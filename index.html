@@ -8,51 +8,58 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NHẠC -->
-<audio id="audio" loop>
-  <source src="music/wedding-song.mp3">
-</audio>
-
-<div id="musicBtn" onclick="toggleMusic()">🎵</div>
-
-<!-- OPEN -->
-<div id="overlay">
-  <h2>💌 Thiệp cưới</h2>
-  <button onclick="openInvite()">Mở thiệp</button>
+<!-- 🎬 CINEMATIC INTRO -->
+<div id="intro">
+  <div class="intro-bg"></div>
+  <div class="intro-text">
+    <h1 class="font-wedding">Vũ Huân & Hoàng Mai</h1>
+    <p>Save Our Date</p>
+  </div>
 </div>
 
-<!-- HERO -->
-<section class="hero" style="background-image:url('images/hero.jpg')">
-  <h1>Huân & Mai</h1>
-</section>
+<!-- 💌 ENVELOPE -->
+<div id="envelope">
+  <div class="env-body"></div>
+  <div class="env-flap"></div>
+  <div class="env-content">
+    <h2>💌 Thiệp cưới</h2>
+    <button onclick="openEnvelope()">Mở thiệp</button>
+  </div>
+</div>
 
-<!-- COUNTDOWN -->
-<section>
-  <div id="countdown">
-    <span id="d"></span>
-    <span id="h"></span>
-    <span id="m"></span>
-    <span id="s"></span>
+<!-- 🎵 MUSIC -->
+<audio id="audio" loop>
+  <source src="music/wedding.mp3">
+</audio>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="images/hero.jpg">
+  <div class="overlay">
+    <h1>Huân & Mai</h1>
+    <p>06 . 06 . 2026</p>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="gallery">
-  <img src="images/gallery1.jpg">
-  <img src="images/gallery2.jpg">
-  <img src="images/gallery3.jpg">
-  <img src="images/gallery4.jpg">
+<!-- 📸 GALLERY -->
+<section class="section">
+  <div class="slider">
+    <img src="images/gallery1.jpg" onclick="openLightbox(this)">
+    <img src="images/gallery2.jpg" onclick="openLightbox(this)">
+    <img src="images/gallery3.jpg" onclick="openLightbox(this)">
+  </div>
 </section>
 
-<canvas id="flowers"></canvas>
+<!-- FULLSCREEN -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
 
 <script src="script.js"></script>
 </body>
