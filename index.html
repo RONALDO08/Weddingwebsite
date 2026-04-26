@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời Mời Thành Hôn - Hoàng Anh & Tuyết Mai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Quicksand', sans-serif; scroll-behavior: smooth; }
+        .font-wedding { font-family: 'Dancing Script', cursive; }
+        .bg-glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        @keyframes float {
+            0% { transform: translateY(0px); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        .heart {
+            position: fixed;
+            color: #ff7eb9;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 10s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-rose-50 overflow-x-hidden">
+
+    <!-- Hiệu ứng trái tim -->
+    <div id="heart-container"></div>
+
+    <!-- Nội dung chính -->
+    <div class="relative z-10 max-w-md mx-auto min-h-screen shadow-2xl bg-white/30">
+        
+        <!-- Section 1: Header -->
+        <section class="relative h-screen flex flex-col items-center justify-center text-center p-6 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=800');">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="relative text-white space-y-4 animate-fadeIn">
+                <p class="uppercase tracking-widest text-sm">Save Our Date</p>
+                <h1 class="font-wedding text-6xl md:text-7xl">Hoàng Anh & Tuyết Mai</h1>
+                <div class="h-[1px] w-24 bg-white mx-auto my-4"></div>
+                <p class="text-xl">25 . 12 . 2026</p>
+            </div>
+            <div class="absolute bottom-10 animate-bounce">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
+        </section>
+
+        <!-- Section 2: Lời mời -->
+        <section class="py-16 px-8 text-center bg-white">
+            <h2 class="font-wedding text-4xl text-rose-600 mb-6">Trân trọng kính mời</h2>
+            <p class="text-gray-600 leading-relaxed italic">
+                “Tình yêu không phải là nhìn nhau, mà là cùng nhau nhìn về một hướng.”<br>
+                Chúng mình trân trọng kính mời bạn đến dự bữa tiệc nhỏ mừng hạnh phúc của hai đứa.
+            </p>
+        </section>
+
+        <!-- Section 3: Thông tin chi tiết -->
+        <section class="py-12 px-6 space-y-6">
+            <div class="bg-glass p-8 rounded-3xl border border-rose-100 text-center shadow-sm">
+                <div class="text-rose-500 flex justify-center mb-4">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 uppercase mb-2">Thời gian</h3>
+                <p class="text-gray-600">10:30 Sáng | Thứ Sáu</p>
+                <p class="text-rose-600 font-bold text-lg">25 Tháng 12, 2026</p>
+            </div>
+
+            <div class="bg-glass p-8 rounded-3xl border border-rose-100 text-center shadow-sm">
+                <div class="text-rose-500 flex justify-center mb-4">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 uppercase mb-2">Địa điểm</h3>
+                <p class="font-bold text-rose-800">Diamond Wedding Palace</p>
+                <p class="text-gray-600 text-sm">123 Đường Tình Yêu, Phường 1, Quận 1, TP. Hồ Chí Minh</p>
+                <a href="#" class="mt-4 inline-block bg-rose-500 text-white px-6 py-2 rounded-full text-sm shadow-md">Xem bản đồ</a>
+            </div>
+        </section>
+
+        <!-- Section 4: Album ảnh -->
+        <section class="py-12 px-4 bg-white">
+            <h2 class="font-wedding text-4xl text-center text-rose-600 mb-8">Khoảnh khắc</h2>
+            <div class="grid grid-cols-2 gap-2">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400" class="rounded-lg h-48 w-full object-cover shadow-sm">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400" class="rounded-lg h-48 w-full object-cover shadow-sm">
+                <img src="https://images.unsplash.com/photo-1465495910483-e28923063d08?w=400" class="rounded-lg col-span-2 h-64 w-full object-cover shadow-sm">
+            </div>
+        </section>
+
+        <!-- Section 5: Mừng cưới -->
+        <section class="py-12 px-6 text-center">
+            <div class="bg-rose-100 p-8 rounded-3xl">
+                <h2 class="font-wedding text-3xl text-rose-700 mb-4">Gửi lời chúc & Mừng cưới</h2>
+                <p class="text-xs text-gray-500 mb-6">Mọi sự yêu mến của bạn đều là món quà vô giá</p>
+                <div class="bg-white p-4 rounded-xl shadow-inner inline-block">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Wedding-HoangAnh" class="w-32 h-32">
+                    <p class="mt-2 text-[10px] font-bold text-gray-400">QUÉT MÃ ĐỂ MỪNG CƯỚI</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-10 text-center text-rose-300">
+            <p class="font-wedding text-2xl">Cảm ơn bạn rất nhiều!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tạo trái tim bay
+        function createHeart() {
+            const container = document.getElementById('heart-container');
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤';
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            container.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 10000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
