@@ -12,7 +12,7 @@
     
     <style>
         :root { --primary: #c29958; --text: #4a4a4a; }
-        body { font-family: 'Montserrat', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; width: 100%; }
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-wedding { font-family: 'Dancing Script', cursive; }
         
@@ -26,33 +26,34 @@
         }
         .envelope-open { transform: translateY(-100%); }
 
-        /* Gallery Styles */
-        .img-container { position: relative; overflow: hidden; border-radius: 4px; background: #f3f4f6; }
-        .img-container img { 
-            width: 100%; height: 100%; object-fit: cover; 
-            transition: transform 0.8s ease; 
-        }
-        .img-container:hover img { transform: scale(1.05); }
-        
+        /* Gallery System */
+        .gallery-container { display: flex; flex-direction: column; gap: 1.5rem; }
+        .img-box { position: relative; overflow: hidden; background: #f3f4f6; border-radius: 4px; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .img-box:hover img { transform: scale(1.05); }
+
         .aspect-vertical { aspect-ratio: 9 / 16; }
         .aspect-horizontal { aspect-ratio: 16 / 9; }
 
-        .btn-map {
-            display: inline-block; margin-top: 1rem; border: 1px solid #000;
-            padding: 0.5rem 1.5rem; font-size: 10px; letter-spacing: 1px;
-            text-transform: uppercase; border-radius: 99px; transition: 0.3s;
+        #music-btn {
+            position: fixed; bottom: 20px; left: 20px; z-index: 90;
+            width: 44px; height: 44px; background: white; border-radius: 50%;
+            display: none; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid var(--primary);
         }
-        .btn-map:hover { background: #000; color: #fff; }
-
-        .rotate { animation: spin 3s linear infinite; }
+        .rotate { animation: spin 4s linear infinite; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
     <audio id="wedding-audio" loop><source src="music/wedding-song.mp3" type="audio/mpeg"></audio>
+    
+    <div id="music-btn" onclick="toggleMusic()">
+        <svg class="w-5 h-5 text-[#c29958]" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.13a4.5 4.5 0 102 3.87V7.351l8-1.6V13.13a4.5 4.5 0 102 3.87V3z"></path></svg>
+    </div>
 
-    <!-- Overlay Mở Thiệp -->
+    <!-- Mở đầu -->
     <div id="envelope-overlay">
         <div class="text-center px-4" data-aos="zoom-in">
             <div class="mb-6 w-32 h-32 mx-auto rounded-full border-2 border-[#c29958] p-1 shadow-xl overflow-hidden">
@@ -66,7 +67,7 @@
 
     <!-- Hero -->
     <section class="h-screen parallax flex items-center justify-center relative" style="background-image: url('images/hero.jpg');">
-        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="absolute inset-0 bg-black/30"></div>
         <div class="relative text-center text-white" data-aos="fade-up">
             <h1 class="font-wedding text-7xl md:text-9xl mb-4">Huân & Mai</h1>
             <p class="tracking-[0.5em] text-sm uppercase">04 . 06 . 2026</p>
@@ -75,93 +76,96 @@
 
     <!-- Gallery Section -->
     <section class="py-24 px-4 bg-white">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="font-serif text-4xl italic mb-2">Wedding Gallery</h2>
                 <div class="w-12 h-[1px] bg-[#c29958] mx-auto"></div>
             </div>
 
-            <div class="space-y-6">
-                <!-- Row 1: 2 Dọc -->
+            <div class="gallery-container">
+                
+                <!-- 1, 2 Dọc -->
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="img-container aspect-vertical" data-aos="fade-right">
-                        <img src="images/gallery1.jpg" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600'">
+                    <div class="img-box aspect-vertical" data-aos="fade-right">
+                        <img src="images/gallery1.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600'">
                     </div>
-                    <div class="img-container aspect-vertical" data-aos="fade-left">
-                        <img src="images/gallery2.jpg" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600'">
+                    <div class="img-box aspect-vertical" data-aos="fade-left">
+                        <img src="images/gallery2.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600'">
                     </div>
                 </div>
 
-                <!-- Row 2: 1 Ngang -->
-                <div class="img-container aspect-horizontal" data-aos="zoom-in">
-                    <img src="images/gallery3.jpg" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200'">
+                <!-- 3 Ngang -->
+                <div class="img-box aspect-horizontal" data-aos="zoom-in">
+                    <img src="images/gallery3.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1200'">
                 </div>
 
-                <!-- Row 3: 2 Dọc -->
+                <!-- 4, 5 Dọc -->
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="img-container aspect-vertical" data-aos="fade-right">
-                        <img src="images/gallery4.jpg" onerror="this.src='https://images.unsplash.com/photo-1522673607200-1648832cee98?w=600'">
+                    <div class="img-box aspect-vertical" data-aos="fade-right">
+                        <img src="images/gallery4.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1522673607200-1648832cee98?w=600'">
                     </div>
-                    <div class="img-container aspect-vertical" data-aos="fade-left">
-                        <img src="images/gallery5.jpg" onerror="this.src='https://images.unsplash.com/photo-1549333106-69a033d20fc4?w=600'">
+                    <div class="img-box aspect-vertical" data-aos="fade-left">
+                        <img src="images/gallery5.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1549333106-69a033d20fc4?w=600'">
                     </div>
                 </div>
 
-                <!-- Row 4: 1 Ngang -->
-                <div class="img-container aspect-horizontal" data-aos="zoom-in">
-                    <img src="images/gallery6.jpg" onerror="this.src='https://images.unsplash.com/photo-1465495910483-e28923063d08?w=1200'">
+                <!-- 6 Ngang -->
+                <div class="img-box aspect-horizontal" data-aos="zoom-in">
+                    <img src="images/gallery6.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1465495910483-e28923063d08?w=1200'">
                 </div>
 
-                <!-- Row 5: 3 Dọc (Hình 7, 8, 9) -->
+                <!-- 7, 8 Dọc -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="img-box aspect-vertical" data-aos="fade-right">
+                        <img src="images/gallery7.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600'">
+                    </div>
+                    <div class="img-box aspect-vertical" data-aos="fade-left">
+                        <img src="images/gallery8.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=600'">
+                    </div>
+                </div>
+
+                <!-- 9 Ngang -->
+                <div class="img-box aspect-horizontal" data-aos="zoom-in">
+                    <img src="images/gallery9.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1529636760656-e09213707fcf?w=1200'">
+                </div>
+
+                <!-- 10, 11, 12 Dọc (3 Cột) -->
                 <div class="grid grid-cols-3 gap-2 md:gap-4">
-                    <div class="img-container aspect-vertical" data-aos="fade-up" data-aos-delay="0">
-                        <img src="images/gallery7.jpg" onerror="this.src='https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=400'">
+                    <div class="img-box aspect-vertical" data-aos="fade-up">
+                        <img src="images/gallery10.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1510076857177-7470076d4098?w=400'">
                     </div>
-                    <div class="img-container aspect-vertical" data-aos="fade-up" data-aos-delay="100">
-                        <img src="images/gallery8.jpg" onerror="this.src='https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=400'">
+                    <div class="img-box aspect-vertical" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/gallery11.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=400'">
                     </div>
-                    <div class="img-container aspect-vertical" data-aos="fade-up" data-aos-delay="200">
-                        <img src="images/gallery9.jpg" onerror="this.src='https://images.unsplash.com/photo-1529636760656-e09213707fcf?w=400'">
-                    </div>
-                </div>
-
-                <!-- Row 6: 3 Dọc (Hình 10, 11, 12) - PHẦN KIỂM TRA LỖI -->
-                <div class="grid grid-cols-3 gap-2 md:gap-4">
-                    <div class="img-container aspect-vertical" data-aos="fade-up" data-aos-delay="0">
-                        <img src="images/gallery10.jpg" onerror="this.src='https://images.unsplash.com/photo-1510076857177-7470076d4098?w=400'">
-                    </div>
-                    <div class="img-container aspect-vertical" data-aos="fade-up" data-aos-delay="100">
-                        <img src="images/gallery11.jpg" onerror="this.src='https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=400'">
-                    </div>
-                    <div class="img-container aspect-vertical" data-aos="fade-up" data-aos-delay="200">
-                        <img src="images/gallery12.jpg" onerror="this.src='https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=400'">
+                    <div class="img-box aspect-vertical" data-aos="fade-up" data-aos-delay="200">
+                        <img src="images/gallery12.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=400'">
                     </div>
                 </div>
 
-                <!-- Row 7: 3 Dọc (Hình 13, 14, 15) -->
+                <!-- 13, 14, 15 Dọc (3 Cột) -->
                 <div class="grid grid-cols-3 gap-2 md:gap-4">
-                    <div class="img-container aspect-vertical" data-aos="fade-up" data-aos-delay="0">
-                        <img src="images/gallery13.jpg" onerror="this.src='https://images.unsplash.com/photo-1517722014278-c256a911678e?w=400'">
+                    <div class="img-box aspect-vertical" data-aos="fade-up">
+                        <img src="images/gallery13.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1517722014278-c256a911678e?w=400'">
                     </div>
-                    <div class="img-container aspect-vertical" data-aos="fade-up" data-aos-delay="100">
-                        <img src="images/gallery14.jpg" onerror="this.src='https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=400'">
+                    <div class="img-box aspect-vertical" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/gallery14.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=400'">
                     </div>
-                    <div class="img-container aspect-vertical" data-aos="fade-up" data-aos-delay="200">
-                        <img src="images/gallery15.jpg" onerror="this.src='https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=400'">
+                    <div class="img-box aspect-vertical" data-aos="fade-up" data-aos-delay="200">
+                        <img src="images/gallery15.jpg" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=400'">
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- RSVP Section -->
+    <!-- RSVP -->
     <section class="py-24 px-6 bg-[#faf9f6]">
-        <div class="max-w-lg mx-auto bg-white p-10 shadow-sm border border-gray-100" data-aos="fade-up">
-            <h3 class="font-serif text-3xl text-center mb-8 italic">Xác nhận tham dự</h3>
+        <div class="max-w-lg mx-auto bg-white p-10 shadow-sm text-center" data-aos="fade-up">
+            <h3 class="font-serif text-3xl mb-8 italic">Xác nhận tham dự</h3>
             <div class="space-y-4">
                 <input type="text" placeholder="Tên của bạn" class="w-full p-3 border-b outline-none text-sm">
-                <input type="text" placeholder="Số người tham dự" class="w-full p-3 border-b outline-none text-sm">
-                <button class="w-full bg-[#c29958] text-white py-4 text-xs tracking-widest font-bold hover:bg-black transition-all">GỬI PHẢN HỒI</button>
+                <button class="w-full bg-[#c29958] text-white py-4 text-xs tracking-widest uppercase font-bold">GỬI PHẢN HỒI</button>
             </div>
         </div>
     </section>
@@ -172,13 +176,30 @@
     </footer>
 
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+
+        const audio = document.getElementById('wedding-audio');
+        const musicBtn = document.getElementById('music-btn');
 
         function openEnvelope() {
             document.getElementById('envelope-overlay').classList.add('envelope-open');
-            const audio = document.getElementById('wedding-audio');
-            audio.play().catch(() => console.log("Cần tương tác để phát nhạc"));
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            musicBtn.style.display = 'flex';
+            audio.play().then(() => {
+                musicBtn.classList.add('rotate');
+            }).catch(e => console.log("Audio play deferred"));
+            
+            // Refresh AOS sau khi mở thiệp
+            setTimeout(() => { AOS.refresh(); }, 1000);
+        }
+
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                musicBtn.classList.add('rotate');
+            } else {
+                audio.pause();
+                musicBtn.classList.remove('rotate');
+            }
         }
     </script>
 </body>
