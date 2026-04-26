@@ -1,20 +1,59 @@
-<!-- 📖 THIỆP LẬT TRANG -->
-<div id="flipWrapper">
-  <div class="flip-card" onclick="openCard()">
-    
-    <!-- MẶT TRƯỚC -->
-    <div class="flip-front">
-      <h2>💌 Thiệp cưới</h2>
-      <p>Huân & Mai</p>
-      <p>(Chạm để mở)</p>
-    </div>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- MẶT SAU -->
-    <div class="flip-back">
-      <h2>04.06.2026</h2>
-      <p>Trân trọng kính mời</p>
-      <button onclick="enterSite(event)">Xem thiệp</button>
-    </div>
+<title>Wedding Huân & Mai</title>
 
-  </div>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NHẠC -->
+<audio id="audio" loop>
+  <source src="music/wedding-song.mp3">
+</audio>
+
+<div id="musicBtn" onclick="toggleMusic()">🎵</div>
+
+<!-- OPEN -->
+<div id="overlay">
+  <h2>💌 Thiệp cưới</h2>
+  <button onclick="openInvite()">Mở thiệp</button>
 </div>
+
+<!-- HERO -->
+<section class="hero" style="background-image:url('images/hero.jpg')">
+  <h1>Huân & Mai</h1>
+</section>
+
+<!-- COUNTDOWN -->
+<section>
+  <div id="countdown">
+    <span id="d"></span>
+    <span id="h"></span>
+    <span id="m"></span>
+    <span id="s"></span>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <img src="images/gallery1.jpg">
+  <img src="images/gallery2.jpg">
+  <img src="images/gallery3.jpg">
+  <img src="images/gallery4.jpg">
+</section>
+
+<canvas id="flowers"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
