@@ -28,7 +28,7 @@
             background-size: cover;
         }
 
-        /* Envelope Overlay - Căn giữa cho Mobile */
+        /* Envelope Overlay */
         #envelope-overlay {
             position: fixed;
             inset: 0;
@@ -109,7 +109,6 @@
         <div class="max-w-md mx-auto px-4" data-aos="zoom-in">
             <div class="mb-8 relative inline-block">
                 <div class="w-32 h-32 border-2 border-[#c29958] rounded-full flex items-center justify-center p-2 mx-auto">
-                    <!-- Ảnh đại diện nhỏ lúc mở thiệp -->
                     <img src="images/open.jpg" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?w=300'" class="w-full h-full rounded-full object-cover shadow-lg">
                 </div>
             </div>
@@ -121,12 +120,11 @@
         </div>
     </div>
 
-    <!-- 2. HERO (ẢNH COVER CHÍNH) -->
-    <!-- Bạn hãy đổi url('images/hero.jpg') thành url('images/SG.jpg') nếu muốn dùng ảnh đã gửi -->
+    <!-- 2. HERO -->
     <section class="relative h-screen parallax flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('images/hero.jpg');">
         <div class="text-center text-white p-4" data-aos="fade-up" data-aos-duration="2000">
             <h1 class="font-wedding text-6xl md:text-9xl mb-8 leading-tight">Vũ Huân & Hoàng Mai</h1>
-            <p class="text-xl tracking-[0.4em] font-light italic">Save Our Date | 06 . 06 . 2026</p>
+            <p class="text-xl tracking-[0.4em] font-light italic">Save Our Date | 04 . 06 . 2026</p>
         </div>
     </section>
 
@@ -153,7 +151,7 @@
             <div class="text-center flex flex-col" data-aos="fade-left">
                 <div class="space-y-1 mb-8 order-1">
                     <p class="text-[10px] uppercase tracking-widest text-[#c29958] mb-2 font-bold">Nhà Gái</p>
-                    <p class="text-sm font-semibold text-gray-700">Ông: Nguyễn Trọng Thăng</p>
+                    <p class="text-sm font-semibold text-gray-700">Ông: Nguyễn Trọng Thắng</p>
                     <p class="text-sm font-semibold text-gray-700">Bà: Đặng Thị Thu Dung</p>
                 </div>
                 <div class="w-64 h-64 mx-auto mb-8 overflow-hidden rounded-full border-8 border-white shadow-xl order-2">
@@ -171,11 +169,13 @@
     <section class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="font-wedding text-5xl text-[#c29958] mb-12" data-aos="fade-up">Lễ Thành Hôn & Vu Quy</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="p-8 bg-[#faf9f6] rounded-sm" data-aos="zoom-in">
-                    <h5 class="font-serif text-lg tracking-widest mb-4 uppercase">Tại Tư Gia </h5>
-                    <p class="text-xl font-serif text-black mb-1">09:00 AM</p>
-                    <p class="text-xs text-gray-400 uppercase">Thứ Sáu | 04 . 06 . 2026</p>
+            <!-- Dùng flex justify-center để khung thông tin luôn nằm giữa -->
+            <div class="flex justify-center">
+                <div class="p-10 bg-[#faf9f6] rounded-sm max-w-sm w-full shadow-sm" data-aos="zoom-in">
+                    <h5 class="font-serif text-lg tracking-widest mb-4 uppercase text-[#c29958]">Tại Tư Gia</h5>
+                    <p class="text-3xl font-serif text-black mb-1">09:00 AM</p>
+                    <div class="h-[1px] w-8 bg-gray-200 mx-auto my-4"></div>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold">Thứ Sáu | 04 . 06 . 2026</p>
                 </div>                
             </div>
         </div>
@@ -185,7 +185,7 @@
     <section class="py-24 px-6 bg-[#faf9f6]">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-down">
-                <p class="font-serif text-2xl italic text-[#c29958]">Trân Trọng Kính Mời Quý Vị Đến Dự Tiệc Mừng</p>
+                <p class="font-serif text-2xl italic text-[#c29958]">Trân Trọng Kính Mời Quý Thân Hữu Đến Dự Tiệc Mừng</p>
                 <div class="h-[1px] w-12 bg-[#c29958] mx-auto mt-4 opacity-50"></div>
             </div>
 
