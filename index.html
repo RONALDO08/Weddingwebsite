@@ -28,10 +28,11 @@
             background-size: cover;
         }
 
-        /* Envelope Overlay with Blur Background */
+        /* Envelope Overlay */
         #envelope-overlay {
             position: fixed;
             inset: 0;
+            background: #fff;
             z-index: 100;
             display: flex;
             align-items: center;
@@ -39,19 +40,6 @@
             text-align: center;
             width: 100vw;
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-            overflow: hidden;
-        }
-        
-        /* Hình nền mờ cho trang mở thiệp */
-        .envelope-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('images/mothiep.jpg'); /* Sử dụng ảnh của bạn */
-            background-size: cover;
-            background-position: center;
-            filter: blur(15px) brightness(0.8); /* Độ mờ và độ tối */
-            transform: scale(1.1); /* Tránh lộ viền khi blur */
-            z-index: -1;
         }
         .envelope-open { transform: translateY(-100%); }
 
